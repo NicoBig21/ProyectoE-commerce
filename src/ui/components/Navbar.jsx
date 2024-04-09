@@ -30,7 +30,10 @@ export const Navbar = () => {
       <div className="navbar-collapse">
         <div className="navbar-nav">
           <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="/">Home</NavLink>
-          {/* Otras rutas */}
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="placa">Placa</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="fuente">Fuente</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="procesador">Procesador</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="search">Buscador</NavLink>
         </div>
       </div>
 
