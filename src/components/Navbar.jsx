@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
-import { Carrito } from './Carrito';
+import Carrito from './Carrito';
 
-export const Navbar = () => {
+export default function Navbar() {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
+
+  const routesComponentPc = 'componentes-pc'
 
   const toggleCart = () => {
     setShowCart(!showCart);
@@ -29,11 +31,9 @@ export const Navbar = () => {
 
       <div className="navbar-collapse">
         <div className="navbar-nav">
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="/">Home</NavLink>
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="placa">Placa</NavLink>
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="fuente">Fuente</NavLink>
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="procesador">Procesador</NavLink>
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to="search">Buscador</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`/`}>Home</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`${routesComponentPc}/productos`}>Productos</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`${routesComponentPc}/search`}>Buscador</NavLink>
         </div>
       </div>
 

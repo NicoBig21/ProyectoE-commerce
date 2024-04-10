@@ -1,3 +1,5 @@
+// TODO: Cambiar a POKEMONES API
+
 export const componentes = [
     {
         'id': 'fuente1',

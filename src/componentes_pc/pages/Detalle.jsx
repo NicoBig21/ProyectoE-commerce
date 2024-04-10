@@ -1,7 +1,7 @@
 import { Navigate, useParams, useNavigate } from 'react-router-dom';
-import { getProductById } from '../helpers';
+import getProductById from '../helpers/getProductById';
 
-export const Productos = ({ handleAddToCart }) => {
+export default function Detalle({handleAddToCart}) {
   const { id } = useParams();
   const producto = getProductById(id);
   const navigate = useNavigate();

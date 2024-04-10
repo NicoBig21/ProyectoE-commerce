@@ -1,6 +1,6 @@
 import { componentes } from '../data/componentes'
 
-export const getProductById = ( id ) => {
+export default function getProductById( id ) {
     
     return componentes.find( componente => componente.id === id )
 }

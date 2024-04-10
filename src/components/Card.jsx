@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export const ComponentCard = ({ id, nombre, imagen, gama, precio }) => {
+export default function Card ({ id, nombre, imagen, gama, precio }) {
     return (
       <div className="col">
           <div className="card">
@@ -18,7 +18,7 @@ export const ComponentCard = ({ id, nombre, imagen, gama, precio }) => {
                           <p>Gama: {gama}</p>
                           <p>Precio: {precio}</p>
   
-                          <Link to={`/productos/${ id }`}>
+                          <Link to={`${ id }`}>
                               Mas info...
                           </Link>
   

@@ -1,4 +1,5 @@
-export const Carrito = ({ cartItems = [], onClose }) => {
+
+export default function Carrito({ cartItems = [], onClose }) {
     
     const handleBack = () => {
         onClose(); // Cierra el componente del carrito

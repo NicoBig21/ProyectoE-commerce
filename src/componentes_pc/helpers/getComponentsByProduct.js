@@ -1,6 +1,4 @@
-
-
-export const getComponentsByProduct = (componentes, producto) => {
+export default function getComponentsByProduct(componentes, producto) {
 
     try {
         validProducts ( producto )
@@ -13,6 +11,5 @@ export const getComponentsByProduct = (componentes, producto) => {
 const validProducts = ( producto ) => {
     const validProducts = ['Fuente', 'Motherboard', 'Procesador'];
         
-        if (!validProducts.includes(producto)) throw new Error(`${producto} no es un producto válido`);
-    
+    if (!validProducts.includes(producto)) throw new Error(`${producto} no es un producto válido`);
 }
