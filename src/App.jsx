@@ -5,6 +5,8 @@ export default function App() {
     return (
         <>
         {/* TODO: Arreglar para que el "Navbar" y el "div" no aparezcan en el "Login" y ademas que no se viole el "Princio de Responsabilidad Unica". *Usar hook* */}
+        {/* TODO: Implementar casos para todos los hooks */}
+        {/* TODO: Que el carrito no sea un pop-up sino que sea una pagina aparte y que este en "page" */}
             <Navbar/> 
             <div className="container">
                 <AppRouter/>
