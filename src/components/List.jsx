@@ -1,9 +1,26 @@
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import getComponentsByProduct from "../componentes_pc/helpers/getComponentsByProduct";
+import PokemonsService from "../services/local/pokemons.service";
 import { componentes } from "../componentes_pc/data/componentes";
 
 export default function List ({ producto }) {
     const listaComponentes = getComponentsByProduct(componentes, producto) ?? componentes;
+    
+    const [pokemons, setPokemons] = useState([])
+
+    useEffect(() => {
+        ( async () => {
+            try {
+                const pokemons = await PokemonsService.getAll()
+                setPokemons (pokemons)
+            } catch (error) {
+                console.log(error)
+            }
+        })()
+    }, [])
+
+    console.log(pokemons)
     
     return (
         <div className="row rows-cols-1 row-cols-md-3 g-3">
