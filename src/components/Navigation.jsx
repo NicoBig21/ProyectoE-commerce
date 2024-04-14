@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { Link, Outlet } from "react-router-dom"
 import { PokemonContext } from "../context/PokemonContext"
 
-export const Navigation = () => {
+export default function Navigation() {
   
   const {} = useContext(PokemonContext)
   

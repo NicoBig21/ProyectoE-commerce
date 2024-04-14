@@ -1,6 +1,6 @@
 
 
-export const Loader = () => {
+export default function Loader() {
   return (
     <div>Loader</div>
   )

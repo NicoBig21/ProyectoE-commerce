@@ -1,12 +1,12 @@
 import Home from './Home';
-import Productos from './Productos';
+import Pokemons from './Pokemons';
 import Detalle from './Detalle';
 import SearchPage from './SearchPage';
 import PageNotFound from './PageNotFound';
 
 export {
     Home,
-    Productos,
+    Pokemons,
     Detalle,
     SearchPage,
     PageNotFound
