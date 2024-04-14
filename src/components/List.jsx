@@ -26,12 +26,8 @@ export default function List ({ producto }) {
         <div className="row rows-cols-1 row-cols-md-3 g-3">
             {listaComponentes.map(componente => (
                 <Card
-                    key={componente.id} // Agrega la prop 'key' con el id único del componente
-                    id={componente.id}
-                    nombre={componente.Nombre}
-                    imagen={componente.imagen}
-                    gama={componente.Gama}
-                    precio={componente.Precio}
+                    key={componente.url} // Agrega la prop 'key' con el id único del componente
+                    nombre={componente.name}
                 />
             ))}
         </div>

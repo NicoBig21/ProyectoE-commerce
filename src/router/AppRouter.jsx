@@ -1,16 +1,18 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { LoginPage } from '../auth/pages/LoginPage';
-import ComponentPc from '../componentes_pc/routes/ComponentPc';
-import { Home, PageNotFound } from '../componentes_pc/pages';
+import { Routes, Route } from 'react-router-dom'; 
+import { Detalle, Home, PageNotFound, Productos, SearchPage } from '../componentes_pc/pages';
+import { Navigation } from '../components/Navigation';
 
 export default function AppRouter() {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="login" element={<LoginPage />} />
-            <Route path="componentes-pc/*" element={<ComponentPc />} />
+    return ( 
+    <Routes>
+        <Route path='pokemon' element={<Navigation />}>
+            <Route path="home" element={<Home />} />
+            <Route path="pokemon" element={<Productos />} />
+            <Route path="pokemon/:id" element={<Detalle />} />
+            <Route path="search" element={<SearchPage />} />
+        </Route>
             <Route path="*" element={<PageNotFound />} />
-        </Routes>
-    );
+    </Routes>
+    )
 }

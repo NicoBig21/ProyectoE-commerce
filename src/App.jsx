@@ -1,5 +1,6 @@
 import AppRouter from "./router/AppRouter";
 import { Navbar } from "./components";
+import { PokemonProvider } from "./context/PokemonProvider";
 
 export default function App() {
     return (
@@ -10,7 +11,9 @@ export default function App() {
         {/* TODO: Meter componentes de MUI */}
             <Navbar/> 
             <div className="container">
-                <AppRouter/>
+                <PokemonProvider>
+                    <AppRouter/>
+                </PokemonProvider>
             </div>
         </>
     )

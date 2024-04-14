@@ -8,8 +8,6 @@ export default function Navbar() {
   const [cartItems, setCartItems] = useState([]);
   const navigate = useNavigate();
 
-  const routesComponentPc = 'componentes-pc'
-
   const toggleCart = () => {
     setShowCart(!showCart);
   };
@@ -32,8 +30,8 @@ export default function Navbar() {
       <div className="navbar-collapse">
         <div className="navbar-nav">
           <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`/`}>Home</NavLink>
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`${routesComponentPc}/productos`}>Productos</NavLink>
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`${routesComponentPc}/search`}>Buscador</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`/pokemon`}>Pokemons</NavLink>
+          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`/search`}>Buscador</NavLink>
         </div>
       </div>
 

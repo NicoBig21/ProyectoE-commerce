@@ -1,5 +1,5 @@
 async function getAll () {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon', {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=50', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
