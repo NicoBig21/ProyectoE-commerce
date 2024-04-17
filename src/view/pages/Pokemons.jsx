@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../../components/Navigation'; // Importa Navigation desde la ubicación correcta
-import { List } from "../../components";
+import { Filter, List } from "../../components";
 
 export default function Pokemons() {
     return (
@@ -26,6 +26,7 @@ export default function Pokemons() {
                 </div>
             </div>
             <List />
+            <Filter/>
         </>
     )
 }

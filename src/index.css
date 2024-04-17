@@ -406,12 +406,12 @@ Styles of Pokemon Single Page
 .container-img-pokemon {
 	order: 2;
 	flex: 1;
-	padding: 25px 25px 25px 0;
+	padding: 55px 55px 0px 0;
 	height: 400px;
 }
 
 .container-img-pokemon img {
-	height: 100%;
+	height: 80%;
 	width: 100%;
 }
 
@@ -520,4 +520,8 @@ Styles of Pokemon Single Page
 .btn-load-more:hover{
 	background-color: var(--color-primary-hover);
 	color: #000;
+}
+
+.Comprar {
+	margin-bottom: 1rem;
 }
