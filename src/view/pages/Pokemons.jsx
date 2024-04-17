@@ -1,8 +1,24 @@
-import React from 'react';
-import Navigation from '../../components/Navigation'; // Importa Navigation desde la ubicación correcta
+import React, { useState, useEffect } from 'react';
+import Navigation from '../../components/Navigation';
 import { Filter, List } from "../../components";
+import Loader from "../../components/Loader";
 
 export default function Pokemons() {
+    const [isLoading, setIsLoading] = useState(true); // Estado para controlar si el loader debe mostrarse al cargar la página
+
+    useEffect(() => {
+        // Simula una carga de datos (aquí puedes agregar tu lógica real de carga de datos)
+        const loadData = () => {
+            // Simulando una carga de datos con un tiempo de espera de 2 segundos
+            setTimeout(() => {
+                setIsLoading(false); // Una vez que los datos se han cargado, establece isLoading en falso para ocultar el loader
+            }, 50);
+        };
+
+        // Llama a la función para cargar los datos cuando el componente se monte
+        loadData();
+    }, []); // El array vacío [] asegura que este efecto se ejecute solo una vez, equivalente a componentDidMount en las clases
+
     return (
         <>
             <Navigation />
@@ -25,8 +41,12 @@ export default function Pokemons() {
                     <span>Filtrar</span>
                 </div>
             </div>
-            <List />
-            <Filter/>
+            {isLoading ? <Loader /> : ( // Si isLoading es true, muestra el loader, de lo contrario, muestra la lista de pokemons y el filtro
+                <>
+                    <List />
+                    <Filter/>
+                </>
+            )}
         </>
     )
 }

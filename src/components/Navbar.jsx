@@ -31,7 +31,6 @@ export default function Navbar() {
         <div className="navbar-nav">
           <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`/`}>Home</NavLink>
           <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`/pokemon`}>Pokemons</NavLink>
-          <NavLink className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`} to={`/search`}>Buscador</NavLink>
         </div>
       </div>
 
