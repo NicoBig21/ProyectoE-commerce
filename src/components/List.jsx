@@ -5,14 +5,26 @@ import Card from "./Card";
 
 export default function List () {
    
-    const {allPokemons} = useContext(PokemonContext)
+    const {allPokemons, filteredPokemons } = useContext(PokemonContext)
 
     return (
         <>
             <div className="card-list-pokemon container">
-                {allPokemons.map(pokemon => (
-                    <Card pokemon={pokemon} key={pokemon.id} />
-                    ))}
+                {
+                    filteredPokemons.length ? (
+                        <>
+                            {filteredPokemons.map(pokemon => (
+                                <Card pokemon={pokemon} key={pokemon.id} />
+                                ))}
+                        </>
+                    ) : (
+                        <>
+                            {allPokemons.map(pokemon => (
+                                <Card pokemon={pokemon} key={pokemon.id} />
+                                ))}
+                        </>
+                    )
+                }
             </div>
         </>
     );

@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navigation from '../../components/Navigation';
 import { Filter, List } from "../../components";
 import Loader from "../../components/Loader";
+import { PokemonContext } from '../../context/PokemonContext';
 
 export default function Pokemons() {
     const [isLoading, setIsLoading] = useState(true); // Estado para controlar si el loader debe mostrarse al cargar la página
+
+    const {onClickLoadMore, active, setActive} = useContext(PokemonContext)
 
     useEffect(() => {
         // Simula una carga de datos (aquí puedes agregar tu lógica real de carga de datos)
@@ -12,7 +15,7 @@ export default function Pokemons() {
             // Simulando una carga de datos con un tiempo de espera de 2 segundos
             setTimeout(() => {
                 setIsLoading(false); // Una vez que los datos se han cargado, establece isLoading en falso para ocultar el loader
-            }, 50);
+            }, 1000);
         };
 
         // Llama a la función para cargar los datos cuando el componente se monte
@@ -23,7 +26,7 @@ export default function Pokemons() {
         <>
             <Navigation />
             <div className="container-filter container">
-                <div className="icon-filter">
+                <div className="icon-filter" onClick={() => setActive(!active)}>
                     <svg
                         xmlns='http://www.w3.org/2000/svg'
                         fill='none'
@@ -45,6 +48,11 @@ export default function Pokemons() {
                 <>
                     <List />
                     <Filter/>
+                    <div className="container-btn-load-more container">
+                        <button className='btn-load-more' onClick={onClickLoadMore}>
+                            Cargar mas
+                        </button>
+                    </div>
                 </>
             )}
         </>
