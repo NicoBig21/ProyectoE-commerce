@@ -136,6 +136,10 @@ header form {
 	gap: 15px;
 }
 
+.navbar {
+	z-index: 1;
+}
+
 .form-group {
 	display: flex;
 	align-items: center;
@@ -341,7 +345,6 @@ header form {
 	height: 100%;
 	padding-top: 2.8rem;
 	transition: all 0.3s linear;
-	margin-top: 3.5rem;
 }
 
 .container-filters.active {
@@ -351,7 +354,7 @@ header form {
 .filter-by-type {
 	display: flex;
 	flex-direction: column;
-
+	margin-top: 2rem;
 	gap: 20px;
 }
 
