@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
@@ -18,7 +19,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-danger p-2">
       <Link className="navbar-brand" to="/">
         <img src={Logo} alt="CCP Logo" style={{ width: '3rem', marginLeft: '2rem' }} />
       </Link>
@@ -36,13 +37,24 @@ export default function Navbar() {
           <div>
             <IconButton
               size="large"
+              aria-label="cart"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <Link to="/carrito">
+                <ShoppingCartIcon style={{ color: '#fff', fontSize: 26 }} />
+              </Link>
+            </IconButton>
+            <IconButton
+              size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenu}
               color="inherit"
             >
-              <AccountCircle style={{ color: '#fff', fontSize: 32 }} /> {/* Ajusta el color y el tamaño del icono */}
+              <AccountCircle style={{ color: '#fff', fontSize: 29 }} />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -58,9 +70,8 @@ export default function Navbar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Carrito</MenuItem>
               <MenuItem onClick={handleClose}>Perfil</MenuItem>
-              <MenuItem onClick={handleClose}>Contacto</MenuItem>
+              <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
             </Menu>
           </div>
         </ul>

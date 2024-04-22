@@ -1,12 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Grandstander', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .modal {
@@ -107,8 +103,8 @@ code {
 	box-sizing: border-box;
 }
 
-body {
-	font-family: 'Montserrat';
+p{
+	font-size: 1.2rem;
 }
 /* Globales */
 .container {
@@ -244,6 +240,12 @@ header form {
 	margin-bottom: 15px;
 }
 
+.pokemon-name {
+	margin-bottom: 2rem; /* Ajusta el valor según sea necesario */
+	text-align: right;
+    font-size: 60px;
+  }  
+
 .card-types {
 	display: flex;
 	gap: 10px;
@@ -343,7 +345,7 @@ header form {
 	color: #555;
 	background-color: #f2f2f2;
 	height: 100%;
-	padding-top: 2.8rem;
+	padding-top: 4rem;
 	transition: all 0.3s linear;
 }
 
@@ -402,7 +404,7 @@ Styles of Pokemon Single Page
 	top: -130px;
 	left: 0;
 
-	font-size: 200px;
+	font-size: 10rem;
 	font-weight: 700;
 	color: var(--color-primary-hover);
 }
@@ -425,11 +427,6 @@ Styles of Pokemon Single Page
 
 	order: 1;
 	flex: 1;
-}
-
-.container-info-pokemon h1 {
-	text-align: right;
-	font-size: 60px;
 }
 
 .info-pokemon {

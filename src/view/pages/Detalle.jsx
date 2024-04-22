@@ -54,8 +54,8 @@ export default function Detalle() {
                                     </span>
                                 ))}
                             </div>
-                                <h1>{primerMayuscula(pokemon.name)}</h1>
-                                <button onClick={handleComprarAhora} className="btn btn-primary btn-lg Comprar">Comprar ahora</button>
+                                <span className='pokemon-name'>{primerMayuscula(pokemon.name)}</span>
+                                <button onClick={handleComprarAhora} className="btn btn-danger btn-lg Comprar">Comprar ahora</button>
                                 <button onClick={handleSeguirComprando} className="btn btn-secondary btn-lg Seguir">Seguir comprando</button>
                         </div>
                     </div>
