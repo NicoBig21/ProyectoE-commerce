@@ -29,8 +29,9 @@ export const PokemonProvider = ({children}) => {
         const promises = data.results.map(async(pokemon) => {
             const res = await fetch(pokemon.url)
             const data = await res.json()
-            return data
+            return assignPrice(data)
         })
+        
         const results = await Promise.all(promises)
 
         setallPokemons([
@@ -56,7 +57,7 @@ export const PokemonProvider = ({children}) => {
         const promises = data.results.map(async(pokemon) => {
             const res = await fetch(pokemon.url)
             const data = await res.json()
-            return data
+            return assignPrice(data)
         })
         const results = await Promise.all(promises)
 
@@ -71,6 +72,33 @@ export const PokemonProvider = ({children}) => {
         const res = await fetch(`${baseURL}pokemon/${id}`)
         const data = await res.json()
         return data;
+    }
+
+
+    // Asignar Precio al pokemon 
+    const assignPrice = (data) => {
+    const pokemonId = data.id; // Suponiendo que el ID del Pokémon es único y constante
+    
+    // Calculamos el precio basado en el ID del Pokémon y el patrón requerido
+    let price;
+    if (pokemonId % 3 === 1) {
+        // Para el primer Pokémon de cada grupo de 3
+        price = 3500;
+    } else if (pokemonId % 3 === 2) {
+        // Para el segundo Pokémon de cada grupo de 3
+        price = 6000;
+    } else {
+        // Para el tercer Pokémon de cada grupo de 3
+        price = 10000;
+    }
+
+    // Almacenamos el precio en el localStorage
+    localStorage.setItem(`pokemon_${pokemonId}_price`, price.toString());
+
+    // Asignamos el precio al Pokémon
+    data.price = price;
+
+    return data;
     }
 
     useEffect(() => {

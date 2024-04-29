@@ -13,6 +13,7 @@ export default function Card ({ pokemon }) {
 			<div className='card-info'>
 				<span className='pokemon-id'>N° {pokemon.id}</span>
 				<h3>{pokemon.name}</h3>
+				<span>${pokemon.price}</span>
 				<div className='card-types'>
 					{pokemon.types.map(type => (
 						<span key={type.type.name} className={type.type.name}>

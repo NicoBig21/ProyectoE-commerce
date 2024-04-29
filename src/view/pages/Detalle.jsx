@@ -10,6 +10,7 @@ export default function Detalle() {
 
     const [loading, setLoading] = useState(true);
     const [pokemon, setPokemon] = useState({});
+    const [precio, setPrecio] = useState(0); 
 
     const { id } = useParams();
 
@@ -17,11 +18,17 @@ export default function Detalle() {
         const data = await getPokemonByID(id);
         setPokemon(data);
         setLoading(false);
+
+        // Obtener el precio del localStorage
+        const storedPrice = localStorage.getItem(`pokemon_${id}_price`);
+        if (storedPrice) {
+            setPrecio(parseInt(storedPrice));
+        }
     }
 
     useEffect(() => {
         fetchPokemon(id);
-    }, []);
+    }, [id]); // Asegúrate de incluir 'id' en la lista de dependencias
 
     const handleComprarAhora = () => {
         // Acciones a realizar cuando se presiona "Comprar ahora"
@@ -55,6 +62,7 @@ export default function Detalle() {
                                 ))}
                             </div>
                                 <span className='pokemon-name'>{primerMayuscula(pokemon.name)}</span>
+                                <p className='pokemon-price price'>Precio: ${precio}</p> {/* Mostrar el precio del Pokemon */}
                                 <button onClick={handleComprarAhora} className="btn btn-danger btn-lg Comprar">Comprar ahora</button>
                                 <button onClick={handleSeguirComprando} className="btn btn-secondary btn-lg Seguir">Seguir comprando</button>
                         </div>
