@@ -113,7 +113,7 @@ p{
 
 /* Globales */
 .container {
-	max-width: 1200px;
+	max-width: 75rem;
 	margin: 0 auto;
 }
 
@@ -403,6 +403,182 @@ Styles of Pokemon Single Page
 
 	position: relative;
 }
+
+/* 
+Home
+======================================= 
+*/
+.home-page{
+	background-image: url(../assets/fondo-home.jpg);
+	background-size: cover;
+}
+
+/* Estilos para la sección de PokemonStore */
+.pokemon-store-section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px;
+  }
+  
+  .pokemon-store-title {
+	text-align: left;
+	color: #ffffff; /* Cambia el color del texto a blanco */
+	font-size: 4.5rem; /* Aumenta el tamaño del título */
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega sombra al título */
+  }
+  
+  .pokemon-store-description {
+	text-align: left;
+	color: #ffffff; /* Cambia el color del texto a blanco */
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto */
+	font-size: 1.1rem; /* Aumenta el tamaño del texto */
+	margin-bottom: 20px;
+  }
+  
+  .pokemon-store-button {
+	padding: 10px 20px;
+	background-color: #ff0000;
+	color: #ffffff;
+	border: 0;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 1.1rem;
+  }
+  
+  
+/* first-pokemon */
+
+.first-pokemon{
+	margin-top: 5rem;
+}
+
+section{
+	margin-top: 4rem;
+}
+
+.img-first-pokemon {
+	display: flex;
+	justify-content: center;
+	margin-top: 1.5rem;
+  }
+  
+  .img-first-pokemon img {
+	max-width: 15rem;
+	max-height: 15rem;
+  }
+  
+  .container-first-pokemon {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+  }
+  
+  .card-first-pokemon {
+	width: 22.5rem;
+	background-color: #f0f0f0;
+	border-radius: 1rem;
+	overflow: hidden;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	margin: 1rem;
+  }
+  
+  .content-first-pokemon {
+	padding: 1rem;
+	margin-top: 2rem;
+  }
+  
+  .content-first-pokemon h3 {
+	font-size: 2.2rem;
+	margin-bottom: 1rem;
+  }
+  
+  .content-first-pokemon p {
+	color: #666;
+	font-size: 1.2rem;
+	line-height: 1.3;
+  }
+  
+  .content-first-pokemon .btn {
+	display: inline-block;
+	padding: 0.8rem 1.3rem;
+	text-decoration: none;
+  }
+  
+  .charmander-img{
+	margin-top: 1rem;
+  }
+
+  .squirtle-img{
+	margin-top: 4rem;
+  }
+
+  .btn-space{
+	margin-top: 1.3rem;
+  }
+
+  /* Coaches */
+
+  .coaches {
+	margin-top: 2rem;
+	padding: 20px;
+  }
+
+  .container-coaches {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 4rem;
+	min-height: 80vh;
+  }
+
+  .card-coaches {
+	width: 18rem;
+	height: 18rem;
+	display: grid;
+	overflow: hidden;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-coaches-img {
+	grid-area: cards;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  }
+
+  .card-coaches figcaption {
+	grid-area: cards;
+	background: rgba(0, 0, 0, 0.8);
+	transform: translateY(calc(100% - 3.5rem));
+	transition: transform 900ms;
+	padding: 1rem;
+	color: #fff;
+	font-weight: 400;
+	position: relative;
+  }
+
+  .card-coaches h3 {
+	margin-top: 0;
+	font-weight: 600;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+  }
+
+  .card-coaches p {
+	margin-bottom: 0;
+  }
+
+  .card-coaches:hover figcaption {
+	transform: translateY(0);
+  }
+
+/* 
+Pokemons section
+======================================= 
+*/
 
 .number-pokemon {
 	position: absolute;
