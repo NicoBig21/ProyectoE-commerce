@@ -25,7 +25,7 @@ export default function Pokemons() {
     return (
         <>
             <Navigation />
-            <div className="container-filter container">
+            <div className="container-filter">
                 <div className="icon-filter" onClick={() => setActive(!active)}>
                     <svg
                         xmlns='http://www.w3.org/2000/svg'

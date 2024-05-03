@@ -5,6 +5,7 @@ import PageNotFound from './PageNotFound';
 import Detalle from './Detalle';
 import Contacto from './Contacto';
 import Carrito from './Carrito';
+import Profile from './Profile';
 
 export {
     Home,
@@ -14,4 +15,5 @@ export {
     PageNotFound,
     Contacto,
     Carrito,
+    Profile,
 } 

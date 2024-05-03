@@ -39,7 +39,7 @@ export default function Detalle() {
     }
 
     return (
-        <main className="container main-pokemon">
+        <main className="main-pokemon">
             {loading ? (
                 <Loader />
             ) : (

@@ -1,23 +1,21 @@
 import AppRouter from "./router/AppRouter";
-import { Navbar } from "./components";
+import { AuthProvider } from "./auth/context/index"; 
 import { PokemonProvider } from "./context/PokemonProvider";
 
 export default function App() {
     return (
         <>
-        {/* TODO: Arreglar para que el "Navbar" y el "div" no aparezcan en el "Login" y ademas que no se viole el "Princio de Responsabilidad Unica". *Usar hook* */}
-        {/* TODO: Implementar casos para todos los hooks */}
-        {/* TODO: Que el carrito no sea un pop-up sino que sea una pagina aparte y que este en "page" */}
-        {/* TODO: Meter componentes de MUI */}
-            <Navbar/> 
-            <div className="container">
-                <PokemonProvider>
-                    <AppRouter/>
-                </PokemonProvider>
-            </div>
+            <AuthProvider>
+                <div className="container">
+                    <PokemonProvider>
+                        <AppRouter/>
+                    </PokemonProvider>
+                </div>
+            </AuthProvider>
         </>
     )
 }
+
 
 // Tipos de "Export"
 // 1. Cuando sabes que solo vas a exporar una sola cosa "ednf" -> export (e) default (d) name (n) function (f)

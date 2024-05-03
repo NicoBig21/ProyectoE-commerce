@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Navigate } from 'react-router-dom';
 import Logo from '../../assets/logo.png';
-import IconButton from '@mui/material/IconButton';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
+import { AuthContext } from '../auth/context';
+import { useContext } from 'react';
+import UserConnected from './UserConnected';
+import UserOffline from './UserOffline';
 
 export default function Navbar() {
-  const [anchorEl, setAnchorEl] = useState(null); // Estado para controlar el menú
+  const [anchorEl, setAnchorEl] = useState(null);
+  const { user, logout } = useContext(AuthContext);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -16,6 +16,12 @@ export default function Navbar() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const onLogout = () => {
+    logout();
+    // Redirige al usuario a la página de inicio de sesión después de cerrar sesión
+    return <Navigate to="/login" />;
   };
 
   return (
@@ -33,48 +39,18 @@ export default function Navbar() {
       </div>
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
-        <ul className="navbar-nav ml-auto">
-          <div>
-            <IconButton
-              size="large"
-              aria-label="cart"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <Link to="/carrito">
-                <ShoppingCartIcon style={{ color: '#fff', fontSize: 26 }} />
-              </Link>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleMenu}
-              color="inherit"
-            >
-              <AccountCircle style={{ color: '#fff', fontSize: 29 }} />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Perfil</MenuItem>
-              <MenuItem onClick={handleClose}>Cerrar Sesión</MenuItem>
-            </Menu>
-          </div>
-        </ul>
+          <ul className="navbar-nav ml-auto">
+            {user ? (
+              <UserConnected
+                anchorEl={anchorEl}
+                handleMenu={handleMenu}
+                handleClose={handleClose}
+                onLogout={onLogout}
+              />
+            ) : (
+              <UserOffline />
+            )}
+          </ul>
       </div>
     </nav>
   );

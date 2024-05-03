@@ -9,7 +9,7 @@ export default function List () {
 
     return (
         <>
-            <div className="card-list-pokemon container">
+            <div className="card-list-pokemon">
                 {
                     filteredPokemons.length ? (
                         <>

@@ -5,6 +5,8 @@ import Loader from './Loader';
 import Navigation from './Navigation';
 import Filter from './Filter';
 import Form from './Form';
+import UserConnected from './UserConnected';
+import UserOffline from './UserOffline';
 
 
 export { 
@@ -15,4 +17,6 @@ export {
     Navigation,
     Filter,
     Form,
+    UserConnected,
+    UserOffline
 };

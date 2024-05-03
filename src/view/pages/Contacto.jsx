@@ -3,7 +3,7 @@ import Form from '../../components/Form';
 
 export default function Contacto() {
   return (
-    <div className="container py-5">
+    <div className="container">
       <h1 className="text-center mb-4">Contactanos</h1>
       <div className="row">
         <div className="col-md-6">

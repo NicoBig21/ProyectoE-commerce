@@ -114,15 +114,15 @@ p{
 /* Globales */
 .container {
 	max-width: 75rem;
-	margin: 0 auto;
-}
+	margin: 7rem auto 0 auto; 
+	padding: 0 20px; 
+  }
 
 /* Header */
 header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
 	padding: 40px 0;
 }
 
@@ -187,6 +187,7 @@ header form {
 /* Btn Filter */
 .container-filter {
 	display: flex;
+	margin-top: 2rem;
 }
 
 .icon-filter {
@@ -387,16 +388,26 @@ Styles of Pokemon Single Page
 ======================================= 
 */
 
+.navbar {
+	z-index: 1;
+	width: 100%; /* Establece el ancho al 100% para ocupar todo el ancho del viewport */
+	background-color: #333; /* Cambia el color de fondo del Navbar según sea necesario */
+	padding: 10px 0; /* Ajusta el relleno superior e inferior según sea necesario */
+	position: fixed; /* Fija el Navbar en la parte superior */
+	top: 0; /* Ancla el Navbar en la parte superior */
+	left: 0; /* Asegura que el Navbar esté pegado al borde izquierdo */
+  }
+
 .main-pokemon {
 	display: flex;
 	flex-direction: column;
 
-	margin-top: 100px;
+	margin-top: 1rem;
 	margin-bottom: 50px;
 }
 
 .header-main-pokemon {
-	margin-top: 20px;
+	margin-top: 5rem;
 
 	display: flex;
 	align-items: center;
@@ -475,7 +486,7 @@ section{
   }
   
   .card-first-pokemon {
-	width: 22.5rem;
+	width: 22rem;
 	background-color: #f0f0f0;
 	border-radius: 1rem;
 	overflow: hidden;
