@@ -6,11 +6,9 @@ export default function App() {
     return (
         <>
             <AuthProvider>
-                <div className="container">
                     <PokemonProvider>
                         <AppRouter/>
                     </PokemonProvider>
-                </div>
             </AuthProvider>
         </>
     )

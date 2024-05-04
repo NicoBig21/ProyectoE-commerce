@@ -1,16 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import { PokemonContext } from "../../context/PokemonContext";
 import { Link } from "react-router-dom";
+import PokemonStoreSection from "../../components/PokemonStoreSection";
 
 export default function Home() {
   const { allPokemons } = useContext(PokemonContext);
-
-  useEffect(() => {
-    document.body.classList.add('home-page');
-    return () => {
-      document.body.classList.remove('home-page');
-    };
-  }, []);
 
   // Buscar Bulbasaur (ID: 1) en la lista de Pokémon
   const bulbasaur = allPokemons.find(pokemon => pokemon.id === 1);
@@ -21,120 +15,101 @@ export default function Home() {
   // Buscar Squirtle (ID: 7) en la lista de Pokémon
   const squirtle = allPokemons.find(pokemon => pokemon.id === 7);
 
-  const scrollToFirstPokemon = () => {
-    const firstPokemonSection = document.getElementById('first-pokemon');
-    firstPokemonSection.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <>
-        <section className="pokemon-store-section">
-          <div className="pokemon-store-content">
-            <h1 className="pokemon-store-title">¡Bienvenidos a PokemonStore!</h1>
-            <p className="pokemon-store-description">
-              ¡Explora nuestro universo Pokémon! Encuentra productos exclusivos, colecciona
-              tus Pokémon favoritos y únete a una comunidad apasionada de entrenadores.
-            </p>
-            <button onClick={scrollToFirstPokemon} className="pokemon-store-button">
-              ¡Comienza tu aventura!
-            </button>
-          </div>
-          <div>
-            <img
-              src="../../../assets/pokemon-store.webp"
-              alt="Imagen de PokemonStore"
-              className="pokemon-store-image"
-            />
-          </div>
-      </section>
-      
+
+      <PokemonStoreSection/>
+        
       <section id="first-pokemon" className="first-pokemon">
-        <h2>Elige a tu primer Pokémon</h2>
-        <hr />
-        <div className="container-first-pokemon">
-          {/* Carta para Bulbasaur */}
-          <div className="card-first-pokemon">
-            {bulbasaur && (
-              <>
-                <div className="img-first-pokemon">
-                  <img
-                    src={bulbasaur.sprites.other.dream_world.front_default}
-                    alt={`Pokemon ${bulbasaur.name}`}
-                    className="pokemon-image"
-                  />
-                </div>
-                <div className="content-first-pokemon bulbasaur">
-                  <h3>{bulbasaur.name}</h3>
-                  <p>
-                    Bulbasaur es un Pokémon tipo planta. Es muy compañero,
-                    amigable y poderoso cuando quiere. Siempre está dispuesto a
-                    ayudar a sus amigos y nunca te dejará en apuros.
-                  </p>
-                  <Link to={`/pokemon/${bulbasaur.id}`} className="btn btn-danger btn-space">
-                    Comprar Ahora
-                  </Link>
-                </div>
-              </>
-            )}
-          </div>
-          {/* Carta para Charmander */}
-          <div className="card-first-pokemon">
-            {charmander && (
-              <>
-                <div className="img-first-pokemon">
-                  <img
-                    src={charmander.sprites.other.dream_world.front_default}
-                    alt={`Pokemon ${charmander.name}`}
-                    className="pokemon-image charmander-img"
-                  />
-                </div>
-                <div className="content-first-pokemon">
-                  <h3>{charmander.name}</h3>
-                  <p>
-                    Charmander es un Pokémon tipo fuego. Es valiente y leal,
-                    pero también puede ser un poco testarudo. Su cola arde con
-                    una llama que indica su estado de ánimo.
-                  </p>
-                  <Link to={`/pokemon/${charmander.id}`} className="btn btn-danger btn-space">
-                    Comprar Ahora
-                  </Link>
-                </div>
-              </>
-            )}
-          </div>
-          {/* Carta para Squirtle */}
-          <div className="card-first-pokemon">
-            {squirtle && (
-              <>
-                <div className="img-first-pokemon">
-                  <img
-                    src={squirtle.sprites.other.dream_world.front_default}
-                    alt={`Pokemon ${squirtle.name}`}
-                    className="pokemon-image"
-                  />
-                </div>
-                <div className="content-first-pokemon squirtle-img">
-                  <h3>{squirtle.name}</h3>
-                  <p>
-                    Squirtle es un Pokémon tipo agua. Es amigable y juguetón,
-                    pero también puede ser decidido y valiente cuando la
-                    situación lo requiere. Su caparazón le ofrece protección
-                    contra los ataques enemigos.
-                  </p>
-                  <Link to={`/pokemon/${squirtle.id}`} className="btn btn-danger">
-                    Comprar Ahora
-                  </Link>
-                </div>
-              </>
-            )}
-          </div>
+        <div className="container">
+          <h2>Elige a tu primer Pokémon</h2>
+          <hr />
+          <div className="container-first-pokemon">
+            {/* Carta para Bulbasaur */}
+            <div className="card-first-pokemon">
+              {bulbasaur && (
+                <>
+                  <div className="img-first-pokemon">
+                    <img
+                      src={bulbasaur.sprites.other.dream_world.front_default}
+                      alt={`Pokemon ${bulbasaur.name}`}
+                      className="pokemon-image"
+                    />
+                  </div>
+                  <div className="content-first-pokemon bulbasaur">
+                    <h3>{bulbasaur.name}</h3>
+                    <p>
+                      Bulbasaur es un Pokémon tipo planta. Es muy compañero,
+                      amigable y poderoso cuando quiere. Siempre está dispuesto a
+                      ayudar a sus amigos y nunca te dejará en apuros.
+                    </p>
+                    <Link to={`/pokemon/${bulbasaur.id}`} className="btn btn-danger btn-space">
+                      Comprar Ahora
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
+            {/* Carta para Charmander */}
+            <div className="card-first-pokemon">
+              {charmander && (
+                <>
+                  <div className="img-first-pokemon">
+                    <img
+                      src={charmander.sprites.other.dream_world.front_default}
+                      alt={`Pokemon ${charmander.name}`}
+                      className="pokemon-image charmander-img"
+                    />
+                  </div>
+                  <div className="content-first-pokemon">
+                    <h3>{charmander.name}</h3>
+                    <p>
+                      Charmander es un Pokémon tipo fuego. Es valiente y leal,
+                      pero también puede ser un poco testarudo. Su cola arde con
+                      una llama que indica su estado de ánimo.
+                    </p>
+                    <Link to={`/pokemon/${charmander.id}`} className="btn btn-danger btn-space">
+                      Comprar Ahora
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
+            {/* Carta para Squirtle */}
+            <div className="card-first-pokemon">
+              {squirtle && (
+                <>
+                  <div className="img-first-pokemon">
+                    <img
+                      src={squirtle.sprites.other.dream_world.front_default}
+                      alt={`Pokemon ${squirtle.name}`}
+                      className="pokemon-image"
+                    />
+                  </div>
+                  <div className="content-first-pokemon squirtle-img">
+                    <h3>{squirtle.name}</h3>
+                    <p>
+                      Squirtle es un Pokémon tipo agua. Es amigable y juguetón,
+                      pero también puede ser decidido y valiente cuando la
+                      situación lo requiere. Su caparazón le ofrece protección
+                      contra los ataques enemigos.
+                    </p>
+                    <Link to={`/pokemon/${squirtle.id}`} className="btn btn-danger">
+                      Comprar Ahora
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
           <div className="d-flex justify-content-center mt-3">
             <Link to="/pokemon" className="btn btn-secondary btn-lg">Elegir otro Pokémon</Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="coaches">
+      <section className="coaches">
+        <div className="container">
           <h2>Mejores Entrenadores Pokémon</h2>
           <hr />
           <div className="container-coaches">
@@ -181,7 +156,8 @@ export default function Home() {
               </figcaption>
             </figure>
           </div>
-        </section>
+        </div>
+      </section>
       </>
   );
 }

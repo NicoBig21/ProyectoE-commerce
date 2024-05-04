@@ -6,6 +6,7 @@ import Detalle from './Detalle';
 import Contacto from './Contacto';
 import Carrito from './Carrito';
 import Profile from './Profile';
+import PokemonStoreSection from '../../components/PokemonStoreSection';
 
 export {
     Home,
@@ -16,4 +17,5 @@ export {
     Contacto,
     Carrito,
     Profile,
+    PokemonStoreSection
 } 

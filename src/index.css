@@ -5,70 +5,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscurecido */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 400px; /* Ajusta el ancho según sea necesario */
-}
-
-.cart-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-items {
-  margin-top: 20px;
-}
-
-.cart-footer {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.close-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  color: #888;
-}
-
-.back-button,
-.checkout-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.back-button {
-  background-color: #ddd;
-}
-
-.checkout-button {
-  background-color: #007bff;
-  color: white;
-}
-
-.checkout-button:hover {
-  background-color: #0056b3;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
 
 :root {
@@ -112,10 +48,8 @@ p{
 }
 
 /* Globales */
-.container {
-	max-width: 75rem;
-	margin: 7rem auto 0 auto; 
-	padding: 0 20px; 
+	.container {
+	margin: 1rem auto 0 auto; 
   }
 
 /* Header */
@@ -133,19 +67,13 @@ header {
 header form {
 	display: flex;
 	align-items: center;
-
 	gap: 15px;
-}
-
-.navbar {
-	z-index: 1;
 }
 
 .form-group {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-
 	border: 1px solid #555;
 	padding: 15px 20px;
 	border-radius: 25px;
@@ -393,10 +321,7 @@ Styles of Pokemon Single Page
 	width: 100%; /* Establece el ancho al 100% para ocupar todo el ancho del viewport */
 	background-color: #333; /* Cambia el color de fondo del Navbar según sea necesario */
 	padding: 10px 0; /* Ajusta el relleno superior e inferior según sea necesario */
-	position: fixed; /* Fija el Navbar en la parte superior */
-	top: 0; /* Ancla el Navbar en la parte superior */
-	left: 0; /* Asegura que el Navbar esté pegado al borde izquierdo */
-  }
+}
 
 .main-pokemon {
 	display: flex;
@@ -407,7 +332,7 @@ Styles of Pokemon Single Page
 }
 
 .header-main-pokemon {
-	margin-top: 5rem;
+	margin-top: 10rem;
 
 	display: flex;
 	align-items: center;
@@ -416,20 +341,56 @@ Styles of Pokemon Single Page
 }
 
 /* 
+Login
+======================================= 
+*/
+
+.img-login {
+	background-image: url('../assets/login-img.jpg');
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .login-card {
+	position: absolute;
+	left: 70%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: none; /* Quita el borde */
+  }
+
+  .border-form{
+	margin-top: 1rem;
+  }
+
+  .login-card button{
+	margin-top: 1rem;
+  }
+	
+  
+  /* Estilos adicionales según tus necesidades */
+
+  
+/* 
 Home
 ======================================= 
 */
-.home-page{
-	background-image: url(../assets/fondo-home.jpg);
-	background-size: cover;
-}
 
 /* Estilos para la sección de PokemonStore */
+
 .pokemon-store-section {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 50px;
+	padding: 10rem;
+	background-color: #006d77;
   }
   
   .pokemon-store-title {
@@ -462,10 +423,6 @@ Home
 
 .first-pokemon{
 	margin-top: 5rem;
-}
-
-section{
-	margin-top: 4rem;
 }
 
 .img-first-pokemon {
