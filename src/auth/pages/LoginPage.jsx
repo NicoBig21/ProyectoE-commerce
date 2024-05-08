@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context';
 
 export const LoginPage = () => {
@@ -19,31 +19,46 @@ export const LoginPage = () => {
   return (
     <div className='img-login'>
       <div className="card login-card">
-        <h1 className="card-title mb-4">Login</h1>
+        <h1 className="card-title mb-4">Iniciar Sesion</h1>
         <form onSubmit={onLogin}>
           <div className="form-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Usuario</label>
             <input 
               type="text" 
-              className="form-control" 
+              className="mt-1" 
               id="username" 
-              placeholder="Enter your username" 
+              placeholder="Ingrese su usuario" 
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
           <div className="form-group border-form">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Contraseña</label>
             <input 
               type="password" 
-              className="form-control" 
+              className="mt-1" 
               id="password" 
-              placeholder="Enter your password" 
+              placeholder="Ingrese su contraseña" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+          </div>
+          <div className='mt-4'>
+            <div className='forgot-password'>
+              ¿Olvidó su contraseña?{' '}
+              <Link to='/forgot-password'>
+                <span>Click Aca</span>
+              </Link>
+            </div>
+
+            <div className='forgot-password ml-4'>
+              ¿No tienes cuenta?{' '}
+              <Link to='/signup'>
+                <span>Regístrate</span>
+              </Link>
+            </div>
           </div>
           <button type="submit" className="btn btn-danger btn-block">Login</button>
         </form>

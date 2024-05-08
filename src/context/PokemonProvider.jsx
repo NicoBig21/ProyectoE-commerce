@@ -8,7 +8,8 @@ export const PokemonProvider = ({children}) => {
     const [allPokemons, setallPokemons] = useState([])
     const [globalPokemons, setGlobalPokemons] = useState([])
     const [offset, setOffset] = useState(0);
-
+    const [carrito, setCarrito] = useState([]);
+    
     //Utilizar CustomHook - useForm
     const {valueSearch, onInputChange, onResetForm} = useForm({
         valueSearch: ''
@@ -160,6 +161,48 @@ export const PokemonProvider = ({children}) => {
         }
     }
 
+    const agregarAlCarrito = async (pokemonId) => {
+        console.log("Agregando Pokémon al carrito. ID:", pokemonId);
+    
+        // Verificar si el pokemon ya está en el carrito
+        const pokemonExistente = carrito.find(item => item.id === pokemonId);
+    
+        // Si el pokemon ya está en el carrito, aumentar la cantidad
+        if (pokemonExistente) {
+            const nuevoCarrito = carrito.map(item => {
+                if (item.id === pokemonId) {
+                    return {
+                        ...item,
+                        cantidad: item.cantidad + 1 // Aumentar la cantidad
+                    };
+                }
+                return item;
+            });
+            console.log("Pokémon ya existe en el carrito. Actualizando cantidad.");
+            setCarrito(nuevoCarrito);
+        } else {
+            try {
+                // Llamar a la función getPokemonByID para obtener el Pokémon completo
+                const nuevoPokemon = await getPokemonByID(pokemonId);
+                console.log("Nuevo Pokémon obtenido:", nuevoPokemon);
+    
+                // Asignar precio al nuevo Pokémon
+                const precio = localStorage.getItem(`pokemon_${pokemonId}_price`);
+                if (precio) {
+                    nuevoPokemon.price = parseInt(precio);
+                }
+    
+                // Agregar el nuevo Pokémon al carrito con cantidad 1
+                console.log("Agregando nuevo Pokémon al carrito:", nuevoPokemon);
+                setCarrito([...carrito, { ...nuevoPokemon, cantidad: 1 }]);
+            } catch (error) {
+                console.error("Error al agregar el Pokémon al carrito:", error);
+            }
+        }
+    };
+    
+
+
     return(
         <PokemonContext.Provider 
             value={{
@@ -173,7 +216,9 @@ export const PokemonProvider = ({children}) => {
                 active, // Asegúrate de incluir active en el valor del contexto
                 setActive, // Asegúrate de incluir setActive en el valor del contexto
                 handleCheckbox,
-                filteredPokemons
+                filteredPokemons, 
+                agregarAlCarrito,
+                carrito
             }}>
             {children}
         </PokemonContext.Provider>

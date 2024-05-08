@@ -332,11 +332,9 @@ Styles of Pokemon Single Page
 }
 
 .header-main-pokemon {
-	margin-top: 10rem;
-
+	margin-top: 6rem;
 	display: flex;
 	align-items: center;
-
 	position: relative;
 }
 
@@ -344,6 +342,10 @@ Styles of Pokemon Single Page
 Login
 ======================================= 
 */
+
+.form-control::placeholder {
+	font-family: Arial, sans-serif;
+  }
 
 .img-login {
 	background-image: url('../assets/login-img.jpg');
@@ -375,9 +377,12 @@ Login
   }
 	
   
-  /* Estilos adicionales según tus necesidades */
+/* 
+Register
+======================================= 
+*/
 
-  
+
 /* 
 Home
 ======================================= 
@@ -390,7 +395,7 @@ Home
 	align-items: center;
 	justify-content: center;
 	padding: 10rem;
-	background-color: #006d77;
+	background-color: #ac0123;
   }
   
   .pokemon-store-title {
@@ -674,4 +679,22 @@ Pokemons section
 
 .Comprar {
 	margin-bottom: 1rem;
+}
+
+/* 
+Carrito 
+======================================= 
+*/
+
+.container-carrito{
+	margin-bottom: 2rem;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.carrito-img{
+	margin: 1rem 0 1rem 0;
+	height: 10rem;
+	width: 10rem;
 }

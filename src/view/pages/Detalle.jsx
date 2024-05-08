@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { PokemonContext } from "../../context/PokemonContext";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../components";
 import { primerMayuscula } from "../../helpers/helper";
 
 export default function Detalle() {
-    const { getPokemonByID } = useContext(PokemonContext);
+    const { getPokemonByID, agregarAlCarrito } = useContext(PokemonContext); // Agrega agregarAlCarrito aquí
     const { id } = useParams();
 
     const [loading, setLoading] = useState(true);
@@ -28,9 +28,10 @@ export default function Detalle() {
     }, [id]);
 
     const handleComprarAhora = () => {
-        // Acciones a realizar cuando se presiona "Comprar ahora"
+        // Llamar a la función agregarAlCarrito con el ID del pokemon actual
+        agregarAlCarrito(pokemon.id); // Pasar solo el ID del pokemon
     };
-
+    
     const handleSeguirComprando = () => {
         // Acciones a realizar cuando se presiona "Seguir comprando"
     };
