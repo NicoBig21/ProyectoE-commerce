@@ -7,6 +7,7 @@ import Filter from './Filter';
 import Form from './Form';
 import UserConnected from './UserConnected';
 import UserOffline from './UserOffline';
+import Footer from './Footer'
 
 
 export { 
@@ -18,5 +19,6 @@ export {
     Filter,
     Form,
     UserConnected,
-    UserOffline
+    UserOffline,
+    Footer
 };

@@ -4,16 +4,16 @@ import { Contacto, Detalle, Home, PageNotFound, Pokemons, SearchPage, Carrito, P
 import { LoginPage } from '../auth/pages/LoginPage';
 import RegisterPage from '../auth/pages/RegisterPage';
 import Navbar from '../components/Navbar'; 
+import Footer from '../components/Footer';
 
 export default function AppRouter() {
     const location = useLocation();
-    const showNavbar = !location.pathname.includes('/login');
-    const showNavbar2 = !location.pathname.includes('/register');
-    
+    const showNavbar = !['/login', '/signup'].includes(location.pathname);
+    const hideFooter = ['/profile', '/carrito'].includes(location.pathname);
+
     return ( 
         <>
-            {showNavbar && showNavbar2 && <Navbar />}
-
+            {showNavbar && <Navbar />}
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='login' element={<LoginPage />} />
@@ -22,10 +22,12 @@ export default function AppRouter() {
                 <Route path='pokemon/:id' element={<Detalle />} />
                 <Route path='search' element={<SearchPage />} />
                 <Route path='contacto' element={<Contacto />} />
-                <Route path='carrito' element={<Carrito />} />
                 <Route path='profile' element={<Profile />} />
+                <Route path='carrito' element={<Carrito />} />
                 <Route path='*' element={<PageNotFound />} />
             </Routes>
+            {!hideFooter && showNavbar && <Footer />}
         </>
     );
 }
+

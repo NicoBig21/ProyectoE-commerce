@@ -693,8 +693,59 @@ Carrito
 	align-items: center;
 }
 
+.container-text-carrito{
+	width: 9rem;
+}
+
 .carrito-img{
 	margin: 1rem 0 1rem 0;
 	height: 10rem;
 	width: 10rem;
 }
+
+.pokemon-border {
+	border: 2px solid #ffcb05; /* Color amarillo Pokémon */
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+	transition: transform 0.3s ease; /* Transición para el efecto hover */
+	background-color: #d4d4d42d;
+  
+	/* Efecto hover */
+	&:hover {
+	  transform: translateY(-5px); /* Elevación al hacer hover */
+	}
+  }  
+
+/* 
+Footer
+======================================= 
+*/
+
+footer {
+  font-family: Arial, sans-serif;
+}
+
+.bg-light-black {
+	background-color: #222;
+  }
+  
+  .text-white {
+	color: #fff;
+  }
+
+  .footer-margin-top {
+	margin-top: 0.5rem;
+  }
+
+  .hover-text-yellow-600:hover {
+	color: #ffd700; /* Cambia este valor según tu preferencia */
+  }
+  
+  .hover-text-blue-600:hover {
+	color: #007bff; /* Cambia este valor según tu preferencia */
+  }
+  
+  .hover-text-red-600:hover {
+	color: #dc3545; /* Cambia este valor según tu preferencia */
+  }
+  
