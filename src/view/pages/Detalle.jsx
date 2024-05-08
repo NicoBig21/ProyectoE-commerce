@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { PokemonContext } from "../../context/PokemonContext";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Loader } from "../../components";
 import { primerMayuscula } from "../../helpers/helper";
 
@@ -31,10 +31,6 @@ export default function Detalle() {
         // Llamar a la función agregarAlCarrito con el ID del pokemon actual
         agregarAlCarrito(pokemon.id); // Pasar solo el ID del pokemon
     };
-    
-    const handleSeguirComprando = () => {
-        // Acciones a realizar cuando se presiona "Seguir comprando"
-    };
 
     return (
         <main className="main-pokemon container">
@@ -64,9 +60,9 @@ export default function Detalle() {
                             <button onClick={handleComprarAhora} className="btn btn-danger btn-lg Comprar">
                                 Comprar ahora
                             </button>
-                            <button onClick={handleSeguirComprando} className="btn btn-secondary btn-lg Seguir">
+                            <Link  to={'/pokemon'} className="btn btn-secondary btn-lg Seguir">
                                 Seguir comprando
-                            </button>
+                            </Link>
                         </div>
                     </div>
 

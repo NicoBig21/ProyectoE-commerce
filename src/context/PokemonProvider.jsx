@@ -163,10 +163,10 @@ export const PokemonProvider = ({children}) => {
 
     const agregarAlCarrito = async (pokemonId) => {
         console.log("Agregando Pokémon al carrito. ID:", pokemonId);
-    
+        
         // Verificar si el pokemon ya está en el carrito
         const pokemonExistente = carrito.find(item => item.id === pokemonId);
-    
+        
         // Si el pokemon ya está en el carrito, aumentar la cantidad
         if (pokemonExistente) {
             const nuevoCarrito = carrito.map(item => {
@@ -185,13 +185,18 @@ export const PokemonProvider = ({children}) => {
                 // Llamar a la función getPokemonByID para obtener el Pokémon completo
                 const nuevoPokemon = await getPokemonByID(pokemonId);
                 console.log("Nuevo Pokémon obtenido:", nuevoPokemon);
-    
+        
                 // Asignar precio al nuevo Pokémon
                 const precio = localStorage.getItem(`pokemon_${pokemonId}_price`);
                 if (precio) {
                     nuevoPokemon.price = parseInt(precio);
                 }
-    
+        
+                // Guardar el ID en el localStorage
+                const carritoIds = JSON.parse(localStorage.getItem('carritoIds')) || [];
+                carritoIds.push(pokemonId);
+                localStorage.setItem('carritoIds', JSON.stringify(carritoIds));
+        
                 // Agregar el nuevo Pokémon al carrito con cantidad 1
                 console.log("Agregando nuevo Pokémon al carrito:", nuevoPokemon);
                 setCarrito([...carrito, { ...nuevoPokemon, cantidad: 1 }]);
@@ -201,7 +206,19 @@ export const PokemonProvider = ({children}) => {
         }
     };
     
+    useEffect(() => {
+        const storedCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        setCarrito(storedCarrito);
+    }, []);
 
+    useEffect(() => {
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+    }, [carrito]);
+
+    const vaciarCarrito = () => {
+        setCarrito([]);
+        localStorage.removeItem('carrito'); // Eliminar el carrito del localStorage
+    };
 
     return(
         <PokemonContext.Provider 
@@ -218,7 +235,8 @@ export const PokemonProvider = ({children}) => {
                 handleCheckbox,
                 filteredPokemons, 
                 agregarAlCarrito,
-                carrito
+                carrito,
+                vaciarCarrito
             }}>
             {children}
         </PokemonContext.Provider>
