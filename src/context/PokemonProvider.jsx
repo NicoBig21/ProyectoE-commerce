@@ -75,32 +75,52 @@ export const PokemonProvider = ({children}) => {
         return data;
     }
 
+    const assignDefaultImage = (data) => {
+        if (
+          !data.sprites ||
+          !data.sprites.other ||
+          !data.sprites.other.dream_world ||
+          !data.sprites.other.dream_world.front_default
+        ) {
+          // Si la imagen no está disponible, asigna una imagen predeterminada
+          data.sprites = {
+            other: {
+              dream_world: {
+                front_default: "../../assets/pokemon-misterioso.jpg", // Inserta la URL de tu imagen por defecto aquí
+              },
+            },
+          };
+        }
+        return data;
+      };
 
-    // Asignar Precio al pokemon 
     const assignPrice = (data) => {
-    const pokemonId = data.id; // Suponiendo que el ID del Pokémon es único y constante
-    
-    // Calculamos el precio basado en el ID del Pokémon y el patrón requerido
-    let price;
-    if (pokemonId % 3 === 1) {
-        // Para el primer Pokémon de cada grupo de 3
-        price = 3500;
-    } else if (pokemonId % 3 === 2) {
-        // Para el segundo Pokémon de cada grupo de 3
-        price = 6000;
-    } else {
-        // Para el tercer Pokémon de cada grupo de 3
-        price = 10000;
-    }
+        const pokemonId = data.id; // Suponiendo que el ID del Pokémon es único y constante
+      
+        // Calculamos el precio basado en el ID del Pokémon y el patrón requerido
+        let price;
+        if (pokemonId % 3 === 1) {
+          // Para el primer Pokémon de cada grupo de 3
+          price = 3500;
+        } else if (pokemonId % 3 === 2) {
+          // Para el segundo Pokémon de cada grupo de 3
+          price = 6000;
+        } else {
+          // Para el tercer Pokémon de cada grupo de 3
+          price = 10000;
+        }
+      
+        // Almacenamos el precio en el localStorage
+        localStorage.setItem(`pokemon_${pokemonId}_price`, price.toString());
+      
+        // Asignamos el precio al Pokémon
+        data.price = price;
+      
+        // Verificar y asignar la imagen por defecto
+        return assignDefaultImage(data);
+      };
 
-    // Almacenamos el precio en el localStorage
-    localStorage.setItem(`pokemon_${pokemonId}_price`, price.toString());
-
-    // Asignamos el precio al Pokémon
-    data.price = price;
-
-    return data;
-    }
+      
 
     useEffect(() => {
         getGlobalPokemons()
@@ -138,14 +158,13 @@ export const PokemonProvider = ({children}) => {
     const [filteredPokemons, setfilteredPokemons] = useState([])
     
     const handleCheckbox = e => {
-
         setTypeSelected({
             ...typeSelected,
             [e.target.name]: e.target.checked
         })
 
         if(e.target.checked){
-            const filteredResult = globalPokemons.filter(pokemon =>
+            const filteredResult = globalPokemons.filter((pokemon) =>
                 pokemon.types
                     .map(type => type.type.name)
                     .includes(e.target.name)
