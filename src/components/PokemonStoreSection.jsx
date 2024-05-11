@@ -1,3 +1,5 @@
+import Store from '../../assets/pokemon-store.webp';
+
 export default function PokemonStoreSection() {
 
     const scrollToFirstPokemon = () => {
@@ -19,7 +21,7 @@ export default function PokemonStoreSection() {
         </div>
         <div className="pokemon-store-image-container">
           <img
-            src="../../../assets/pokemon-store.webp"
+            src={Store} 
             alt="Imagen de PokemonStore"
             className="pokemon-store-image"
           />

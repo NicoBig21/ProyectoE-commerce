@@ -260,6 +260,5 @@ export const PokemonProvider = ({children}) => {
             {children}
         </PokemonContext.Provider>
 
-    );
-    
+    );  
 }
