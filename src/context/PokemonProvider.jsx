@@ -88,7 +88,7 @@ export const PokemonProvider = ({children}) => {
           data.sprites = {
             other: {
               dream_world: {
-                front_default: {mysteriousPokemon}, // Inserta la URL de tu imagen por defecto aquí
+                front_default: mysteriousPokemon, // Inserta la URL de tu imagen por defecto aquí
               },
             },
           };
