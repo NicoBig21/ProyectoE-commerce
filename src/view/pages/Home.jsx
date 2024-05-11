@@ -3,6 +3,13 @@ import { PokemonContext } from "../../context/PokemonContext";
 import { Link } from "react-router-dom";
 import PokemonStoreSection from "../../components/PokemonStoreSection";
 
+import lionelImg from "../../../assets/lionel-1.jpg"
+import cynthiaImg from "../../../assets/cynthia-2.jpg"
+import stevenImg from "../../../assets/steven-3.jpg"
+import lanceImg from "../../../assets/lance-4.jpg"
+import dianthaImg from "../../../assets/diantha-5.jpg"
+import alainImg from "../../../assets/alain-6.jpg"
+
 export default function Home() {
   const { allPokemons } = useContext(PokemonContext);
 
@@ -114,42 +121,42 @@ export default function Home() {
           <hr />
           <div className="container-coaches">
             <figure className="card-coaches">
-              <img src="../../../assets/lionel-1.jpg" alt="Lionel" className="card-coaches-img"/>
+              <img src={lionelImg} alt="Lionel" className="card-coaches-img"/>
               <figcaption>
                 <h3>Lionel</h3>
                 <p>Lionel es un experimentado entrenador Pokémon que ha viajado por todas las regiones.</p>
               </figcaption>
             </figure>
             <figure className="card-coaches">
-              <img src="../../../assets/cynthia-2.jpg" alt="Cynthia" className="card-coaches-img"/>
+              <img src={cynthiaImg} alt="Cynthia" className="card-coaches-img"/>
               <figcaption>
                 <h3>Cynthia</h3>
                 <p>Cynthia es la campeona de la Liga Pokémon de la región de Sinnoh y es conocida por su equipo diverso y poderoso.</p>
               </figcaption>
             </figure>
             <figure className="card-coaches">
-              <img src="../../../assets/steven-3.jpg" alt="Steven" className="card-coaches-img"/>
+              <img src={stevenImg} alt="Steven" className="card-coaches-img"/>
               <figcaption>
                 <h3>Steven</h3>
                 <p>Steven es un maestro en el entrenamiento de Pokémon de tipo Acero y es el campeón de la región de Hoenn.</p>
               </figcaption>
             </figure>
             <figure className="card-coaches">
-              <img src="../../../assets/lance-4.jpg" alt="Lance" className="card-coaches-img"/>
+              <img src={lanceImg} alt="Lance" className="card-coaches-img"/>
               <figcaption>
                 <h3>Lance</h3>
                 <p>Lance es un experto en el entrenamiento de Pokémon de tipo Dragón y es el campeón de la Liga Pokémon de la región de Johto.</p>
               </figcaption>
             </figure>
             <figure className="card-coaches">
-              <img src="../../../assets/diantha-5.jpg" alt="Diantha" className="card-coaches-img"/>
+              <img src={dianthaImg} alt="Diantha" className="card-coaches-img"/>
               <figcaption>
                 <h3>Diantha</h3>
                 <p>Diantha es una famosa actriz de cine y también la campeona de la Liga Pokémon de la región de Kalos.</p>
               </figcaption>
             </figure>
             <figure className="card-coaches">
-              <img src="../../../assets/alain-6.jpg" alt="Alain" className="card-coaches-img"/>
+              <img src={alainImg} alt="Alain" className="card-coaches-img"/>
               <figcaption>
                 <h3>Alain</h3>
                 <p>Alain es un entrenador poderoso que ha viajado en busca de fuertes oponentes y desafíos.</p>

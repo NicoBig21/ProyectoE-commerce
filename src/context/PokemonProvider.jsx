@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { PokemonContext } from "./PokemonContext";
 import { useForm } from "../view/hooks/UseForm";
 
+import mysteriousPokemon from "../../assets/pokemon-misterioso.jpg"
+
 
 export const PokemonProvider = ({children}) => {
   
@@ -86,7 +88,7 @@ export const PokemonProvider = ({children}) => {
           data.sprites = {
             other: {
               dream_world: {
-                front_default: "../../assets/pokemon-misterioso.jpg", // Inserta la URL de tu imagen por defecto aquí
+                front_default: {mysteriousPokemon}, // Inserta la URL de tu imagen por defecto aquí
               },
             },
           };
